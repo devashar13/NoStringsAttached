@@ -1,12 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import Web3 from "web3";
 import Navbar from "./Navbar";
+import Decentragram from "../abis/Decentragram.json";
 import "./App.css";
+import Main from "./Main";
 import "./index.css";
 const App = () => {
   const [account, setAccount] = useState(() => {
     return "";
   });
+
+  const [loading, setLoading] = useState(true);
   useEffect(async () => {
     await loadWeb3();
     await loadBlockchainData();
@@ -26,7 +30,25 @@ const App = () => {
     const accounts = await web3.eth.getAccounts();
     setAccount(accounts[0]);
   };
-  return <div></div>;
+  return (
+    <div className="main-screen">
+      <Navbar account={account} />
+      <div className="container-fluid mt-5">
+        <div className="row">
+          <main role="main" className="col-lg-12 d-flex">
+            {loading ? (
+              <div id="loader" className="text-center">
+                <p className="Text Center">Loading..</p>
+              </div>
+            ) : (
+              <Main
+              />
+            )}
+          </main>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default App;
