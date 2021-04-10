@@ -27,9 +27,6 @@ NoStringsAttached is a decentralised open music sharing platform with the power 
   
 </a>
 </p>
-## Marketing and Business model
-- We plan to follow a Social Business Model. An operating strategy to create the intended impact. This includes the organization’s internal structure as well as external partnerships.
-- We plan on creating a brand value of NostringsAttached and partner later with companies to spread awareness about privacy and data security.
 
 
 ## Future Works
@@ -44,6 +41,3 @@ NoStringsAttached is a decentralised open music sharing platform with the power 
 3. Load Ganache
 4. Allow Nostringsattached to access Metamask
 5. You're now all set to play around with your own Nostringsattached
-
-
-</p>
