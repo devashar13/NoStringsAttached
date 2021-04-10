@@ -1,0 +1,151 @@
+body, html {
+	color: white;
+	background-color: #191927;
+	height: 100vh;
+	width: 100vw;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.content {
+	background-color: #222230;
+	padding: 20px 40px;
+	border-radius: 30px;
+}
+
+.left, .right{
+	width: 400px;
+}
+
+
+form {
+	width: 100%;
+}
+
+.left, .right {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.file-drop-div {
+	background-color: #2F2F43;
+	position: relative;
+	width: 100%;
+	height: 200px;
+	padding: 20px;
+	border-radius: 30px;
+}
+
+.upload-logo {
+	margin: 10px 0;
+}
+
+
+.browse-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+
+#browse-input{
+	width: 200px;
+	margin: auto;
+	height: 60px;
+	outline: none;
+	cursor: pointer;
+	background-color: rgba(73, 89, 233, 0.2);
+	color: #4959E8;
+
+}
+
+#browse-input-label, .btn-tip{
+	display: inline-block;
+	background-color: rgba(73,89,232,0.2);
+	color: #4959E8;
+	padding: 0.5rem;
+	font-family: sans-serif;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 35px;
+	width: 200px;
+	text-align: center;
+  }
+
+  .tip-enter-div {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+  }
+
+  .tip-enter-div > input {
+	  border-radius: 5px;
+  }
+
+  .btn-tip {
+	font-size: 16px;
+	width: 75px;
+  }
+
+
+.or-div {
+	display: flex;
+	justify-content: center;
+	margin: 20px 0;
+}
+
+.or-div>h3{
+	margin: 0;
+}
+
+.show-files-to-upload {
+	margin-top: 20px;
+}
+
+.mp3-icon {
+	width: 40px;
+	height: auto;
+	display: inline-block;
+}
+
+.file-name {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+.card-main, .list-group-item, #imageList, .list-group-flush {
+	background-color: #2f2f43 !important;
+}
+
+.white {
+	color: white !important;
+}
+
+.rhap_container{
+	background-color: rgba(73, 89, 232, 0.2);
+}
+
+.rhap_time, .tips-value {
+	color: white !important;
+}
+
+.rhap_progress-indicator, .rhap_progress-filled, .rhap_volume-filled, .rhap_volume-indicator{
+	background-color: #4959E8;
+}
+
+.rhap_button-clear>svg>path{
+	fill: #5762c5;
+}
+
+.main-main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
