@@ -38,6 +38,16 @@ const App = () => {
         setDecentragram(decentragram);
         const imageCount = await decentragram.methods.imageCount().call();
         setImageCount(imageCount);
+  const captureFile = (event) => {
+    event.preventDefault();
+    const file = event.target.files[0];
+    const reader = new window.FileReader();
+    reader.readAsArrayBuffer(file);
+    reader.onloadend = () => {
+      buffer.current = Buffer(reader.result);
+      console.log(buffer.current);
+    };
+  };
   };
   return (
     <div className="main-screen">
