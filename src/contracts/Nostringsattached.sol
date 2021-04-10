@@ -27,4 +27,6 @@ struct Song{
   function tipImageOwner(uint _id) public payable {
     require(_id > 0 && _id <= songCount);  
     Song memory _song = songs[_id];
+    address payable _author = _song.author;
+    address(_author).transfer(msg.value);
   }
