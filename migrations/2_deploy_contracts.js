@@ -1,4 +1,4 @@
-const Decentragram = artifacts.require("Nostringsattached");
+const Nostringsattached = artifacts.require("Nostringsattached");
 
 module.exports = function(deployer) {
   

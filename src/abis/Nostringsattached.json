@@ -4949,9 +4949,92 @@
     "name": "solc",
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {
+        "0xba664f58369841fea4922d228f0bee6c430e63fa2928d228de86744a20e5f2a7": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "hash",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "description",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "tipAmount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address payable",
+              "name": "author",
+              "type": "address"
+            }
+          ],
+          "name": "SongCreated",
+          "type": "event"
+        },
+        "0x9dd60ee8e746f364f45f10163a293fb8fd3131cf9dbe24cf60886641e3a2da39": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "hash",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "description",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "tipAmount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address payable",
+              "name": "author",
+              "type": "address"
+            }
+          ],
+          "name": "SongTipped",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x34e44CCC349ca6b70C34f4F1fb89387625662061",
+      "transactionHash": "0x7aff16f64c69446040d406bc3d03732a6783a1cd114a0eb0c5695d6fc1acd6f0"
+    }
+  },
   "schemaVersion": "3.0.23",
-  "updatedAt": "2021-04-10T07:38:05.547Z",
+  "updatedAt": "2021-04-10T09:00:35.973Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },
