@@ -18,7 +18,19 @@ const Navbar = ({ account }) => {
           <small className="text-secondary">
             <small id="account">{account}</small>
           </small>
-          
+          {account ? (
+            <img
+              className="ml-2"
+              width="30"
+              height="30"
+              src={`data:image/png;base64,${new Identicon(
+                account,
+                30
+              ).toString()}`}
+            />
+          ) : (
+            <span></span>
+          )}
         </li>
       </ul>
     </nav>
