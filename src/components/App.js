@@ -45,8 +45,8 @@ const App = () => {
         const song = await nostringsattached.methods.songs(i).call()
         songs.current = [...songs.current,song]
       }
-      console.log(images.current)
-      images.current.sort((a,b)=>b.tipAmount-a.tipAmount)
+      console.log(songs.current)
+     
       setLoading(false);
     } else {
       window.alert("LOLOLOLOLOL");
@@ -61,6 +61,19 @@ const App = () => {
       buffer.current = Buffer(reader.result);
       console.log(buffer.current);
     };
+  };
+  const uploadSong = (description) => {
+    console.log("sending to ipfs");
+    ipfs.add(buffer.current, (error, result) => {
+      console.log("ipfs file", result);
+      if (error) {
+        console.log(error);
+      }
+      setLoading(true)
+      decentragram.methods.uploadImage(result[0].hash,description).send({from:account}).on('transactionHash', (hash) => {
+        setLoading(false)
+      })
+    });
   };
   return (
     <div className="main-screen">
@@ -77,6 +90,7 @@ const App = () => {
                 images = {images.current}
                 captureFile={captureFile}
                 account={account}
+                uploadSong={uploadSong}
               />
             )}
           </main>
