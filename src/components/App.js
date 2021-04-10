@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Web3 from "web3";
 import Navbar from "./Navbar";
-import Decentragram from "../abis/Decentragram.json";
+import Nostringsattached from "../abis/Nostringsattached.json.json";
 import "./App.css";
 import Main from "./Main";
 import "./index.css";
@@ -9,8 +9,10 @@ const App = () => {
   const [account, setAccount] = useState(() => {
     return "";
   });
-
   const [loading, setLoading] = useState(true);
+  const [imageCount, setImageCount] = useState(() => {
+    return 0;
+  });
   useEffect(async () => {
     await loadWeb3();
     await loadBlockchainData();
@@ -22,13 +24,20 @@ const App = () => {
     } else if (window.web3) {
       window.web3 = new Web3(window.web3.currentProvider);
     } else {
-      window.alert("Non-Ethereum browser detected");
+      window.alert("Pls download truffle and ganache to use the webapp, go to the github repo for more info");
     }
   };
   const loadBlockchainData = async () => {
     const web3 = window.web3;
     const accounts = await web3.eth.getAccounts();
     setAccount(accounts[0]);
+    const netWorkId = await web3.eth.getId();
+    const netData = await Nostringsattached.networks[netWorkId];
+    if (netData) {
+        const decentragram = web3.eth.Contract(Decentragram.abi, netData.address);
+        setDecentragram(decentragram);
+        const imageCount = await decentragram.methods.imageCount().call();
+        setImageCount(imageCount);
   };
   return (
     <div className="main-screen">
