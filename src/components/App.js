@@ -5,6 +5,12 @@ import Nostringsattached from "../abis/Nostringsattached.json.json";
 import "./App.css";
 import Main from "./Main";
 import "./index.css";
+const ipfsClient = require("ipfs-http-client");
+const ipfs = ipfsClient({
+  host: "ipfs.infura.io",
+  port: 5001,
+  protocol: "https",
+});
 const App = () => {
   const [account, setAccount] = useState(() => {
     return "";
@@ -38,15 +44,15 @@ const App = () => {
     if (netData) {
       const nostringsattached = web3.eth.Contract(Nostringsattached.abi, netData.address);
       setDecentragram(nostringsattached);
-      const imageCount = await nostringsattached.methods.imageCount().call();
-      setImageCount(imageCount);
-      // console.log(imageCount.toNumber());
-      for(var i =1;i<=imageCount;i++){
+      const songCount = await nostringsattached.methods.songCount().call();
+      setSongCount(songCount);
+      // console.log(songCount.toNumber());
+      for(var i =1;i<=songCount;i++){
         const song = await nostringsattached.methods.songs(i).call()
         songs.current = [...songs.current,song]
       }
       console.log(songs.current)
-     
+      images.current.sort((a,b)=>b.tipAmount-a.tipAmount)
       setLoading(false);
     } else {
       window.alert("LOLOLOLOLOL");
@@ -70,11 +76,17 @@ const App = () => {
         console.log(error);
       }
       setLoading(true)
-      decentragram.methods.uploadImage(result[0].hash,description).send({from:account}).on('transactionHash', (hash) => {
+      decentragram.methods.uploadSong(result[0].hash,description).send({from:account}).on('transactionHash', (hash) => {
         setLoading(false)
       })
     });
   };
+  const tipSongOwner = async (id,tipAmount) =>{
+    setLoading(true)
+    decentragram.methods.tipSongOwner(id).send({from:account,value:tipAmount}).on('transactionHash',(hash)=>{
+      setLoading(false)
+    })
+  }
   return (
     <div className="main-screen">
       <Navbar account={account} />
@@ -87,10 +99,11 @@ const App = () => {
               </div>
             ) : (
               <Main
-                images = {images.current}
+                songs = {songs.current}
                 captureFile={captureFile}
                 account={account}
                 uploadSong={uploadSong}
+                tipSongOwner = {tipSongOwner}
               />
             )}
           </main>
