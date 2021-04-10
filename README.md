@@ -3,7 +3,7 @@
 
 
 ### Disclaimer- To run the project you need **To download metamask and Ganache and have balance in Ganache**
-
+https://nostringsattached.netlify.app/
 ## Introduction
 NoStringsAttached would help singers and artists for their ownership issue that generally occurs using a single click, safe and secure, giving full control of their privacy right into their arms. It will make sure that the records can not be tampered with and the creator’s song can be permanently uploaded on the blockchain and it is a transparent process. 
 
