@@ -22,4 +22,5 @@ struct Song{
     require(msg.sender!=address(0x0));
     songCount++; 
     songs[songCount] = Song(songCount,_songHash,_description,0,msg.sender);
+    emit SongCreated(songCount,_songHash,_description,0,msg.sender);
   }
