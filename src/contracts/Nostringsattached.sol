@@ -24,3 +24,7 @@ struct Song{
     songs[songCount] = Song(songCount,_songHash,_description,0,msg.sender);
     emit SongCreated(songCount,_songHash,_description,0,msg.sender);
   }
+  function tipImageOwner(uint _id) public payable {
+    require(_id > 0 && _id <= songCount);  
+    Song memory _song = songs[_id];
+  }
