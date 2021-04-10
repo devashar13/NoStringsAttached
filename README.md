@@ -1,4 +1,4 @@
-# UniChain
+# NoStringsAttached
 
 
 
@@ -23,7 +23,8 @@ NoStringsAttached is a decentralised open music sharing platform with the power 
 
 ## Architecture
 <p align="center">
-<img src="https://ibb.co/CBrCF0C" alt="Arch"/>
+<img src="https://i.ibb.co/6Yd95s9/arch.jpg" alt="Arch"/>
+  
 </a>
 </p>
 ## Marketing and Business model
