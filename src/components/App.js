@@ -10,9 +10,10 @@ const App = () => {
     return "";
   });
   const [loading, setLoading] = useState(true);
-  const [imageCount, setImageCount] = useState(() => {
+  const [songCount, setSongCount] = useState(() => {
     return 0;
   });
+  const songs = useRef([]);
   useEffect(async () => {
     await loadWeb3();
     await loadBlockchainData();
@@ -33,11 +34,24 @@ const App = () => {
     setAccount(accounts[0]);
     const netWorkId = await web3.eth.getId();
     const netData = await Nostringsattached.networks[netWorkId];
+    // console.log(accounts[0])
     if (netData) {
-        const decentragram = web3.eth.Contract(Decentragram.abi, netData.address);
-        setDecentragram(decentragram);
-        const imageCount = await decentragram.methods.imageCount().call();
-        setImageCount(imageCount);
+      const nostringsattached = web3.eth.Contract(Nostringsattached.abi, netData.address);
+      setDecentragram(nostringsattached);
+      const imageCount = await nostringsattached.methods.imageCount().call();
+      setImageCount(imageCount);
+      // console.log(imageCount.toNumber());
+      for(var i =1;i<=imageCount;i++){
+        const song = await nostringsattached.methods.songs(i).call()
+        songs.current = [...songs.current,song]
+      }
+      console.log(images.current)
+      images.current.sort((a,b)=>b.tipAmount-a.tipAmount)
+      setLoading(false);
+    } else {
+      window.alert("LOLOLOLOLOL");
+    }
+  };
   const captureFile = (event) => {
     event.preventDefault();
     const file = event.target.files[0];
@@ -47,7 +61,6 @@ const App = () => {
       buffer.current = Buffer(reader.result);
       console.log(buffer.current);
     };
-  };
   };
   return (
     <div className="main-screen">
@@ -61,6 +74,9 @@ const App = () => {
               </div>
             ) : (
               <Main
+                images = {images.current}
+                captureFile={captureFile}
+                account={account}
               />
             )}
           </main>
